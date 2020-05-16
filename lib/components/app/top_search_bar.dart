@@ -91,6 +91,9 @@ class _TopSearchBarState extends State<TopSearchBar>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      width: widget.search ? 0.0 : 42.0,
+                    ),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -101,7 +104,6 @@ class _TopSearchBarState extends State<TopSearchBar>
                 ),
                 margin: EdgeInsets.symmetric(
                   vertical: 10.0,
-//                  horizontal: 20.0,
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: 8.0,
