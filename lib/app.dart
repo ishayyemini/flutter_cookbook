@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
         textSelectionColor: Colors.yellow[100],
         cursorColor: Colors.yellow[800],
         textTheme: TextTheme(
-          headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-          body1: GoogleFonts.oswald(),
-          subhead: GoogleFonts.lato(
+          headline5: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          bodyText2: GoogleFonts.oswald(),
+          subtitle1: GoogleFonts.lato(
             fontSize: 16.0,
             color: Colors.grey,
             fontWeight: FontWeight.bold,

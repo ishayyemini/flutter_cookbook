@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../app/top_search_bar.dart';
+import 'package:fluttercookbook/components/app/top_search_bar.dart';
+import 'package:fluttercookbook/components/home/body.dart';
+import 'package:fluttercookbook/helpers/database_helpers.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -12,14 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
   bool _search = false;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   void _toggleSearch([bool nextSearch]) {
     setState(() {
@@ -27,9 +21,19 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _saveRecipe() async {
+    Recipe recipe = Recipe();
+    recipe.name = 'Souflee';
+    recipe.totalTime = 30;
+    DatabaseHelper helper = DatabaseHelper.instance;
+    int id = await helper.insert(recipe);
+    print('inserted recipe: $id');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(64.0),
         child: SafeArea(
@@ -44,21 +48,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
+      body: HomeBody(),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -77,7 +69,7 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.amber[800],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _saveRecipe,
         tooltip: 'Increment',
         child: Icon(Icons.create),
       ),

@@ -59,7 +59,7 @@ class _TopSearchBarState extends State<TopSearchBar>
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintStyle:
-                                        Theme.of(context).textTheme.subhead,
+                                        Theme.of(context).textTheme.subtitle1,
                                     contentPadding: EdgeInsets.only(
                                       bottom: 5.0,
                                     ),
@@ -67,7 +67,7 @@ class _TopSearchBarState extends State<TopSearchBar>
                                   autofocus: true,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .subhead
+                                      .subtitle1
                                       .apply(color: Colors.black),
                                 )
                               : SizedBox(),
@@ -84,7 +84,7 @@ class _TopSearchBarState extends State<TopSearchBar>
                           child: Center(
                             child: Text(
                               'Search your recipes',
-                              style: Theme.of(context).textTheme.subhead,
+                              style: Theme.of(context).textTheme.subtitle1,
                               softWrap: false,
                             ),
                           ),
